@@ -6,7 +6,7 @@ public class Main {
     private static final double POUNDS_TO_KG = 0.453592;
 
     public static void main(String[] args) {
-        System.out.println("Simple Converter App");
+        System.out.println("Simple Converter App (version 1.1)");
 
         double kilograms = 5;
         double pounds = 12;
