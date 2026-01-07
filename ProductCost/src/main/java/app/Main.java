@@ -1,5 +1,7 @@
 package app;
 
+import java.math.BigDecimal;
+
 // Main class for running the program
 public class Main {
 
@@ -7,20 +9,20 @@ public class Main {
         // Get input data
         String[] data = getData();
 
-        // Create product object from input data
+        // Create product object
         Product product = new Product(
                 data[0],
                 Integer.parseInt(data[1]),
-                Double.parseDouble(data[2])
+                new BigDecimal(data[2])
         );
 
         // Calculate base cost
-        CalcCostBase costBase = new CalcCostBase();
-        double baseCost = costBase.calcCost(product);
+        CostCalculator baseCalculator = new CalcCostBase();
+        BigDecimal baseCost = baseCalculator.calcCost(product);
 
         // Calculate cost including delivery
-        CalcCostDelivery costDelivery = new CalcCostDelivery();
-        double deliveryCost = costDelivery.calcCost(product);
+        CostCalculator deliveryCalculator = new CalcCostDelivery();
+        BigDecimal deliveryCost = deliveryCalculator.calcCost(product);
 
         // Prepare output
         String baseOutput = product + "\nCost is " +

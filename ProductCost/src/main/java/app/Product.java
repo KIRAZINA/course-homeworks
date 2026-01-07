@@ -1,29 +1,9 @@
 package app;
 
-// Product model class
-public class Product {
+import java.math.BigDecimal;
 
-    String name;
-    int quota;
-    double price;
-
-    public Product(String name, int quota, double price) {
-        this.name = name;
-        this.quota = quota;
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getQuota() {
-        return quota;
-    }
-
-    public double getPrice() {
-        return price;
-    }
+// Modern product model using record
+public record Product(String name, int quota, BigDecimal price) {
 
     @Override
     public String toString() {
@@ -34,3 +14,4 @@ public class Product {
                 " " + price + ".";
     }
 }
+

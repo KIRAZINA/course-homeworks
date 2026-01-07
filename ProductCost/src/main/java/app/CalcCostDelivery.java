@@ -1,16 +1,15 @@
 package app;
 
-// Class for calculating product cost including delivery
-// This class extends CalcCostBase
+import java.math.BigDecimal;
+
+// Delivery cost calculator implementation
 public class CalcCostDelivery extends CalcCostBase {
 
-    // Delivery price (fixed value)
-    private final static double deliveryPrice = 7.0;
+    // Delivery price as constant
+    private static final BigDecimal DELIVERY_PRICE = BigDecimal.valueOf(7.0);
 
-    // Calculation of product cost including delivery
     @Override
-    public double calcCost(Product product) {
-        // Base cost + delivery price
-        return super.calcCost(product) + deliveryPrice;
+    public BigDecimal calcCost(Product product) {
+        return super.calcCost(product).add(DELIVERY_PRICE);
     }
 }

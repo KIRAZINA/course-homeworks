@@ -1,10 +1,12 @@
 package app;
 
-// Class for calculating base cost of product
-public class CalcCostBase {
+import java.math.BigDecimal;
 
-    // Base calculation: quota * price
-    public double calcCost(Product product) {
-        return product.getQuota() * product.getPrice();
+// Base cost calculator implementation
+public class CalcCostBase implements CostCalculator {
+
+    @Override
+    public BigDecimal calcCost(Product product) {
+        return product.price().multiply(BigDecimal.valueOf(product.quota()));
     }
 }
