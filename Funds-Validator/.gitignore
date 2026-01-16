@@ -1,0 +1,30 @@
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Build output directories
+/out/
+target/
+bin/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+
+# Compiled class files
+*.class
+
+# Package archives
+*.jar
+*.war
+*.ear
+
+# Backup files
+*~
