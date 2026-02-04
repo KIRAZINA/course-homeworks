@@ -30,3 +30,4 @@ Thumbs.db
 /.gradle/
 /mvnw
 /mvnw.cmd
+/.mvn/
