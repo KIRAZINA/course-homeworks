@@ -22,7 +22,7 @@
             <version>5.10.3</version>
             <scope>test</scope>
         </dependency>
-        <!-- AssertJ – очень удобные assertions -->
+        <!-- AssertJ -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
