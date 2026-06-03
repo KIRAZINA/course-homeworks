@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Spring Security</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-dark bg-primary mb-4">
+    <div class="container">
+        <span class="navbar-brand">User Management Dashboard</span>
+        <div class="d-flex align-items-center text-white">
+            <!-- Display authenticated user's email -->
+            <span class="me-3" th:text="'Welcome, ' + ${#authentication.name}"></span>
+            <form th:action="@{/logout}" method="post" class="d-inline">
+                <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header bg-white">
+            <h5 class="mb-0">Registered Users</h5>
+        </div>
+        <div class="card-body">
+            <!-- Empty State -->
+            <div th:if="${users == null || users.isEmpty()}" class="text-center text-muted p-4">
+                No registered users found.
+            </div>
+
+            <!-- User Table -->
+            <table th:if="${users != null && !users.isEmpty()}" class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Role(s)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.phone}"></td>
+                    <td>
+                        <!-- Iterate over roles collection -->
+                        <span th:each="role, iterStat : ${user.roles}"
+                              class="badge bg-secondary me-1"
+                              th:text="${role.name}"></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
